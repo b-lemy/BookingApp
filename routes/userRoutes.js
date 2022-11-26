@@ -1,21 +1,20 @@
 import express from "express";
-import {deleteUser, getSingleUser, updateUser} from "../Controllerss/UserController.js";
-import {getAllHotel} from "../Controllerss/HotelController.js";
+// import {deleteUser, getAllUser, getSingleUser, updateUser} from "../Controllers/UserController.js";
+//
 
 const router =express.Router();
 
-
-//UPDATE
-router.put("/:id", updateUser);
-//DELETE
-
-router.delete("/:id", deleteUser);
-
-//GET
-router.get("/:id", getSingleUser);
-//GET ALL
-router.get("/", getAllHotel);
-
+//
+// //UPDATE
+// router.put("/:id", updateUser);
+// //DELETE//
+// router.delete("/:id", deleteUser);
+//
+// //GET
+// router.get("/:id", getSingleUser);
+// //GET ALL
+// router.get("/", getAllUser);
+//
 
 
 //
