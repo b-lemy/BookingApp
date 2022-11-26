@@ -3,10 +3,10 @@
 import express from "express"
 import dotenv from "dotenv"
 import mongoose from "mongoose"
-import authRoute from "./routes/authRoutes.js"
-import roomRoute from "./routes/roomRouter.js"
+// import authRoute from "./routes/authRoutes.js"
+import roomRoute from "./routes/roomRoutes.js"
  import hotelRoute from "./routes/hotelRoutes.js"
- import userRoute from "./routes/userRoutes.js"
+ // import userRoute from "./routes/userRoutes.js"
  import cookieparser from "cookie-parser"
 
 
@@ -39,8 +39,8 @@ app.use((req,res,next) =>{
  app.use(cookieparser())
  app.use(express.json())
 
- app.use("/auth", authRoute);
- app.use("/user", userRoute);
+ // app.use("/auth", authRoute);
+ // app.use("/user", userRoute);
  app.use("/hotel", hotelRoute);
  app.use("/room", roomRoute);
 //
