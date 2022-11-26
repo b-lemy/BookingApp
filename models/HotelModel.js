@@ -1,6 +1,5 @@
 import mongoose from "mongoose";
-
-
+mongoose.Promise = global.Promise;
 
 const HotelSchema = new mongoose.Schema({
     name:{
@@ -55,5 +54,6 @@ const HotelSchema = new mongoose.Schema({
     }
 
 });
+const Hotel = mongoose.model.Hotel || mongoose.model('User',HotelSchema)
 
-export default mongoose.model("Hotel" ,HotelSchema)
+export default Hotel

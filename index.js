@@ -3,10 +3,11 @@
 import express from "express"
 import dotenv from "dotenv"
 import mongoose from "mongoose"
-import authRoute from "./routes/auth.js"
-import roomRoute from "./routes/rooms.js"
-import hotelRoute from "./routes/hotels.js"
-import userRoute from "./routes/users.js"
+import authRoute from "./routes/authRoutes.js"
+import roomRoute from "./routes/roomRouter.js"
+ import hotelRoute from "./routes/hotelRoutes.js"
+ import userRoute from "./routes/userRoutes.js"
+ import cookieparser from "cookie-parser"
 
 
 const app = express();
@@ -18,7 +19,8 @@ const connect = async () => {
         await mongoose.connect(process.env.MONGO);
         console.log("Connected to database")
     } catch (error) {
-        throw error;
+        // throw error;
+        console.log("something")
     }
 }
 //
@@ -34,15 +36,14 @@ app.use((req,res,next) =>{
 
     /*if there is another function below for your app to not crush write return next()*/
 })
+ app.use(cookieparser())
+ app.use(express.json())
 
-app.use(express.json())
-
-
-app.use("/auth", authRoute);
-app.use("/user", userRoute);
-app.use("/hotel", hotelRoute);
-app.use("/room", roomRoute);
-
+ app.use("/auth", authRoute);
+ app.use("/user", userRoute);
+ app.use("/hotel", hotelRoute);
+ app.use("/room", roomRoute);
+//
 app.use((err,req,res,next) =>{
      const errorStatus = err.status || 500
     const errorMessage = err.status || "Error from Handlers"
